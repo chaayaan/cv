@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chayan Dev - Network Engineer CV</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.4;
+        color: #2c3e50;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .cv-container {
+        max-width: 210mm;
+        margin: 0 auto;
+        background: white;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        color: white;
+        padding: 40px 30px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.1"><circle cx="30" cy="30" r="2"/></g></svg>')
+          repeat;
+        opacity: 0.1;
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .name {
+        font-size: 2.5em;
+        font-weight: 700;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .title {
+        font-size: 1.2em;
+        opacity: 0.9;
+        margin-bottom: 20px;
+        font-style: italic;
+      }
+
+      .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.95em;
+      }
+
+      .contact-item i {
+        width: 16px;
+        text-align: center;
+      }
+
+      .main-content {
+        padding: 30px;
+      }
+
+      .section {
+        margin-bottom: 35px;
+      }
+
+      .section-title {
+        font-size: 1.4em;
+        color: #2c3e50;
+        border-bottom: 3px solid #3498db;
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .section-title i {
+        color: #3498db;
+      }
+
+      .summary {
+        font-size: 1.05em;
+        line-height: 1.6;
+        text-align: justify;
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 6px;
+        border-left: 4px solid #3498db;
+      }
+
+      .education-item,
+      .cert-item {
+        margin-bottom: 15px;
+      }
+
+      .degree {
+        font-size: 1.1em;
+        font-weight: 600;
+        color: #2c3e50;
+      }
+
+      .institution {
+        color: #3498db;
+        font-weight: 500;
+        margin: 5px 0;
+      }
+
+      .date {
+        color: #7f8c8d;
+        font-style: italic;
+        font-size: 0.9em;
+      }
+
+      .education-cert-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .skill-category {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 6px;
+        border-left: 4px solid #e74c3c;
+      }
+
+      .skill-category h4 {
+        color: #2c3e50;
+        margin-bottom: 12px;
+        font-size: 1.1em;
+      }
+
+      .skill-list {
+        list-style: none;
+      }
+
+      .skill-list li {
+        padding: 4px 0;
+        color: #555;
+        position: relative;
+        padding-left: 15px;
+      }
+
+      .skill-list li::before {
+        content: "▸";
+        color: #e74c3c;
+        position: absolute;
+        left: 0;
+      }
+
+      .project {
+        margin-bottom: 20px;
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 6px;
+        border-left: 4px solid #27ae60;
+      }
+
+      .project-title {
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 8px;
+        font-size: 1.05em;
+      }
+
+      .project-desc {
+        color: #555;
+        line-height: 1.5;
+      }
+
+      .competencies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .competency {
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 25px;
+        font-size: 0.9em;
+        font-weight: 500;
+      }
+
+      .languages {
+        display: flex;
+        gap: 30px;
+      }
+
+      .language {
+        text-align: center;
+      }
+
+      .language-name {
+        font-weight: 600;
+        color: #2c3e50;
+      }
+
+      .language-level {
+        color: #7f8c8d;
+        font-size: 0.9em;
+      }
+
+      .print-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: white;
+        border: none;
+        padding: 15px 20px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 1em;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+
+      .print-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Print Styles */
+      @media print {
+        @page {
+          size: A4;
+          margin: 0.4in 0.5in;
+        }
+
+        body {
+          background: none !important;
+          padding: 0;
+          font-size: 10px;
+          line-height: 1.3;
+        }
+
+        .cv-container {
+          box-shadow: none;
+          border-radius: 0;
+          max-width: none;
+          margin: 0;
+          height: auto;
+        }
+
+        .header {
+          padding: 15px 15px;
+          background: #2c3e50 !important;
+          -webkit-print-color-adjust: exact;
+          color-adjust: exact;
+        }
+
+        .name {
+          font-size: 1.6em;
+          margin-bottom: 5px;
+        }
+
+        .title {
+          font-size: 0.9em;
+          margin-bottom: 10px;
+        }
+
+        .contact-info {
+          gap: 15px;
+        }
+
+        .contact-item {
+          font-size: 0.8em;
+        }
+
+        .main-content {
+          padding: 12px 15px;
+        }
+
+        .section {
+          margin-bottom: 12px;
+          page-break-inside: avoid;
+        }
+
+        .section-title {
+          font-size: 1.1em;
+          margin-bottom: 8px;
+          padding-bottom: 3px;
+        }
+
+        .summary {
+          font-size: 0.85em;
+          padding: 10px;
+          line-height: 1.4;
+          margin-bottom: 8px;
+        }
+
+        .education-cert-grid {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+        }
+
+        .skill-category {
+          padding: 8px;
+          margin-bottom: 5px;
+        }
+
+        .skill-category h4 {
+          font-size: 0.9em;
+          margin-bottom: 6px;
+        }
+
+        .skill-list li {
+          padding: 1px 0;
+          font-size: 0.8em;
+          line-height: 1.2;
+        }
+
+        .project {
+          margin-bottom: 8px;
+          padding: 8px;
+        }
+
+        .project-title {
+          font-size: 0.9em;
+          margin-bottom: 3px;
+        }
+
+        .project-desc {
+          font-size: 0.8em;
+          line-height: 1.3;
+        }
+
+        .competencies {
+          gap: 6px;
+        }
+
+        .competency {
+          padding: 4px 8px;
+          font-size: 0.75em;
+          background: #3498db !important;
+          -webkit-print-color-adjust: exact;
+          color-adjust: exact;
+        }
+
+        .languages {
+          gap: 20px;
+        }
+
+        .language-name {
+          font-size: 0.9em;
+        }
+
+        .language-level {
+          font-size: 0.8em;
+        }
+
+        .print-btn {
+          display: none;
+        }
+
+        .education-item,
+        .cert-item {
+          margin-bottom: 8px;
+        }
+
+        .degree {
+          font-size: 0.95em;
+        }
+
+        .institution {
+          font-size: 0.85em;
+          margin: 2px 0;
+        }
+
+        .date {
+          font-size: 0.8em;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .contact-info {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .education-cert-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .competencies {
+          justify-content: center;
+        }
+
+        .languages {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cv-container">
+      <header class="header">
+        <div class="header-content">
+          <h1 class="name">CHAYAN DEV</h1>
+          <p class="title">
+            Computer Science & Engineering Student | Aspiring Network Engineer
+          </p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>debchayan6@gmail.com</span>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-linkedin"></i>
+              <span>linkedin.com/in/chayandev</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="section">
+          <h2 class="section-title">
+            <i class="fas fa-user"></i>
+            PROFESSIONAL SUMMARY
+          </h2>
+          <div class="summary">
+            Motivated CSE undergraduate with strong foundation in network
+            technologies. Currently pursuing CCNA certification with hands-on
+            experience in routing, switching, and network security. Demonstrated
+            proficiency in network design, configuration, and troubleshooting
+            through practical lab work. Seeking to leverage technical skills in
+            network engineering role to build robust, scalable network
+            infrastructures.
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">
+            <i class="fas fa-graduation-cap"></i>
+            EDUCATION & CERTIFICATIONS
+          </h2>
+          <div class="education-cert-grid">
+            <div class="education-item">
+              <div class="degree">
+                Bachelor of Science in Computer Science and Engineering
+              </div>
+              <div class="institution">Premier University, Bangladesh</div>
+              <div class="date">Expected Graduation: November 2026</div>
+            </div>
+            <div class="cert-item">
+              <div class="degree">Certifications in Progress:</div>
+              <ul style="margin-left: 15px; margin-top: 8px">
+                <li>Cisco Certified Network Associate (CCNA)</li>
+                <li>MikroTik Certified Network Associate (MTCNA)</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">
+            <i class="fas fa-cogs"></i>
+            TECHNICAL SKILLS
+          </h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h4>Networking Fundamentals</h4>
+              <ul class="skill-list">
+                <li>IP Addressing and Subnetting (CIDR, VLSM)</li>
+                <li>Network Protocols: TCP/IP, Static Routing, RIP, OSPF</li>
+                <li>VLANs, Trunk Configuration, Inter-VLAN Routing</li>
+                <li>Network Address Translation (NAT/PAT)</li>
+                <li>Access Control Lists (Standard and Extended ACLs)</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h4>Network Management & Tools</h4>
+              <ul class="skill-list">
+                <li>Cisco IOS Command Line Interface (CLI)</li>
+                <li>Network Diagnostics: Ping, Traceroute</li>
+                <li>Protocol Analysis and Packet Inspection</li>
+                <li>Cisco Packet Tracer</li>
+                <li>Wireshark Protocol Analyzer</li>
+                <li>Basic MikroTik RouterOS</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">
+            <i class="fas fa-project-diagram"></i>
+            PROJECTS & EXPERIENCE
+          </h2>
+          <div class="projects-grid">
+            <div class="project">
+              <div class="project-title">Advanced Subnetting & VLAN</div>
+              <div class="project-desc">
+                Designed complex subnet schemes using CIDR/VLSM. Configured
+                VLANs for network segmentation, implemented trunk links and
+                Inter-VLAN routing.
+              </div>
+            </div>
+            <div class="project">
+              <div class="project-title">Routing & Network Security</div>
+              <div class="project-desc">
+                Configured static/dynamic routing (RIP), analyzed routing
+                tables. Deployed ACLs for traffic filtering, implemented port
+                security.
+              </div>
+            </div>
+            <div class="project">
+              <div class="project-title">NAT & Troubleshooting</div>
+              <div class="project-desc">
+                Configured Static NAT, Dynamic NAT, and PAT for
+                private-to-public IP translation. Performed network diagnostics
+                and optimization.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">
+            <i class="fas fa-lightbulb"></i>
+            CORE COMPETENCIES
+          </h2>
+          <div class="competencies">
+            <span class="competency">Network Design & Architecture</span>
+            <span class="competency">Protocol Analysis</span>
+            <span class="competency">Problem-Solving</span>
+            <span class="competency">Technical Documentation</span>
+            <span class="competency">Continuous Learning</span>
+            <span class="competency">Team Collaboration</span>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">
+            <i class="fas fa-language"></i>
+            LANGUAGES
+          </h2>
+          <div class="languages">
+            <div class="language">
+              <div class="language-name">English</div>
+              <div class="language-level">Professional Working Proficiency</div>
+            </div>
+            <div class="language">
+              <div class="language-name">Bengali</div>
+              <div class="language-level">Native Speaker</div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">
+      <i class="fas fa-print"></i> Print CV
+    </button>
+
+    <script>
+      // Add smooth scrolling and print functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add print event listener
+        window.addEventListener("beforeprint", function () {
+          document.body.style.background = "white";
+        });
+
+        window.addEventListener("afterprint", function () {
+          document.body.style.background =
+            "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
+        });
+
+        // Add hover effects for interactive elements
+        const skillCategories = document.querySelectorAll(".skill-category");
+        skillCategories.forEach((category) => {
+          category.addEventListener("mouseenter", function () {
+            this.style.transform = "translateY(-2px)";
+            this.style.boxShadow = "0 5px 15px rgba(0,0,0,0.1)";
+            this.style.transition = "all 0.3s ease";
+          });
+
+          category.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(0)";
+            this.style.boxShadow = "none";
+          });
+        });
+
+        const projects = document.querySelectorAll(".project");
+        projects.forEach((project) => {
+          project.addEventListener("mouseenter", function () {
+            this.style.transform = "translateY(-2px)";
+            this.style.boxShadow = "0 5px 15px rgba(0,0,0,0.1)";
+            this.style.transition = "all 0.3s ease";
+          });
+
+          project.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(0)";
+            this.style.boxShadow = "none";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
